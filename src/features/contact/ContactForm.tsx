@@ -44,7 +44,7 @@ export function ContactForm() {
       }
     } catch (error) {
       toast.error("Errore imprevisto. Riprova più tardi.");
-      console.error(error);
+      console.error("Contact form submission error:", error);
     } finally {
       setLoading(false);
     }

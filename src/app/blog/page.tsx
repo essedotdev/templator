@@ -5,6 +5,13 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader, Section } from "@/components/common";
+import { createMetadata } from "@/lib/metadata";
+
+export const metadata = createMetadata({
+  title: "Blog",
+  description: "Latest articles and updates about Next.js, Drizzle, NextAuth, and web development",
+  path: "/blog",
+});
 
 /**
  * Blog list page - mostra tutti i post pubblicati.

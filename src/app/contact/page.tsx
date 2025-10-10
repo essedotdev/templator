@@ -2,11 +2,13 @@ import { ContactForm } from "@/features/contact/ContactForm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { PageHeader, Section } from "@/components/common";
 import { Mail, MessageSquare, Clock } from "lucide-react";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Contact Us - Templator",
-  description: "Get in touch with our team",
-};
+export const metadata = createMetadata({
+  title: "Contact Us",
+  description: "Get in touch with our team. We typically respond within 24 hours.",
+  path: "/contact",
+});
 
 export default function ContactPage() {
   return (

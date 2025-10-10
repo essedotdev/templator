@@ -1,9 +1,7 @@
 # Templator
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue.svg)](https://www.typescriptlang.org/)
 [![Next.js](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](#contributing)
 
 AI-first Next.js template for rapid development with authentication, database, and Cloudflare Workers deployment.
 
@@ -21,8 +19,6 @@ AI-first Next.js template for rapid development with authentication, database, a
 - [Deployment](#deployment)
 - [Documentation](#documentation)
 - [Comparison](#-comparison)
-- [Contributing](#-contributing)
-- [License](#license)
 
 ## 🎯 Who Is This For?
 
@@ -140,6 +136,19 @@ AI-first Next.js template for rapid development with authentication, database, a
 
 </td>
 </tr>
+<tr>
+<td colspan="2">
+
+### 🔒 Security & SEO
+
+- ✅ Security headers configured (HSTS, X-Frame-Options, CSP, etc.)
+- ✅ Dynamic sitemap.xml with blog posts
+- ✅ robots.txt with search engine directives
+- ✅ Open Graph & Twitter Cards metadata
+- ✅ Structured logging for debugging
+
+</td>
+</tr>
 </table>
 
 ✅ **Pages**
@@ -193,6 +202,7 @@ ADMIN_EMAIL="admin@yourdomain.com"
 ```
 
 Generate NextAuth secret:
+
 ```bash
 openssl rand -base64 32
 ```
@@ -335,6 +345,7 @@ pnpm preview
 ### Environment Variables
 
 **Local development (`.env`):**
+
 ```bash
 DATABASE_URL="postgresql://..."
 NEXTAUTH_URL="http://localhost:3000"
@@ -345,6 +356,7 @@ ADMIN_EMAIL="admin@yourdomain.com"
 **Production (Cloudflare):**
 
 Set secrets via Wrangler CLI (recommended):
+
 ```bash
 pnpm wrangler secret put DATABASE_URL
 pnpm wrangler secret put NEXTAUTH_SECRET
@@ -367,6 +379,7 @@ Or set in Cloudflare dashboard → Workers → Settings → Variables and Secret
 ## Development Workflow
 
 1. **Add new feature**:
+
    ```bash
    mkdir -p src/features/my-feature
    # Create: schema.ts, actions.ts, MyFeatureForm.tsx, README.md
@@ -442,41 +455,6 @@ How does Templator compare to other Next.js starters?
 - Zero cold starts
 - Generous free tier (100k req/day)
 - Perfect with Neon PostgreSQL
-
-## 🤝 Contributing
-
-Contributions are welcome! This template is designed to be a starting point that grows with the community.
-
-### How to Contribute
-
-1. **Fork the repository**
-2. **Create your feature branch** (`git checkout -b feature/amazing-feature`)
-3. **Make your changes** following the existing code style and conventions
-4. **Test your changes** (`pnpm format && pnpm lint && pnpm typecheck && pnpm build`)
-5. **Commit your changes** (`git commit -m 'Add amazing feature'`)
-6. **Push to the branch** (`git push origin feature/amazing-feature`)
-7. **Open a Pull Request**
-
-### Guidelines
-
-- Follow the existing architecture and naming conventions
-- Update documentation if you're adding new features
-- Add examples in `docs/EXAMPLES.md` if relevant
-- Keep features modular and self-contained
-- Write clear commit messages
-
-### Ideas for Contributions
-
-- 📝 Additional feature modules (e.g., comments, analytics, payments)
-- 🎨 New shadcn/ui component examples
-- 📧 Additional email templates
-- 📚 More recipes in `docs/recipes/`
-- 🐛 Bug fixes and improvements
-- 🌐 Internationalization support
-
-## License
-
-MIT
 
 ## Credits
 

@@ -7,6 +7,7 @@ import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { Section } from "@/components/common";
+import { createMetadata } from "@/lib/metadata";
 
 /**
  * Blog post detail page.
@@ -29,15 +30,18 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     .limit(1);
 
   if (!post) {
-    return {
+    return createMetadata({
       title: "Post Not Found",
-    };
+      noIndex: true,
+    });
   }
 
-  return {
+  return createMetadata({
     title: post.title,
-    description: post.excerpt || undefined,
-  };
+    description: post.excerpt || `Read ${post.title} on Templator blog`,
+    image: post.coverImage || undefined,
+    path: `/blog/${post.slug}`,
+  });
 }
 
 export default async function BlogPostPage({ params }: BlogPostPageProps) {

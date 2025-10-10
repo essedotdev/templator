@@ -33,7 +33,7 @@ export function NewsletterForm() {
       }
     } catch (error) {
       toast.error("Errore imprevisto. Riprova più tardi.");
-      console.error(error);
+      console.error("Newsletter subscription error:", error);
     } finally {
       setLoading(false);
     }

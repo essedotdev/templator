@@ -11,11 +11,14 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { PageHeader, Section } from "@/components/common";
 import { Check } from "lucide-react";
+import { createMetadata } from "@/lib/metadata";
 
-export const metadata = {
-  title: "Pricing - Templator",
-  description: "Simple, transparent pricing for everyone",
-};
+export const metadata = createMetadata({
+  title: "Pricing",
+  description:
+    "Simple, transparent pricing for everyone. Choose from Starter, Pro, or Enterprise plans.",
+  path: "/pricing",
+});
 
 const plans = [
   {
