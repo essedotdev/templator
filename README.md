@@ -413,7 +413,7 @@ See `docs/` folder for detailed guides:
 - `COMPONENTS.md` - Complete components reference (UI, layout, auth, dashboard)
 - `EXAMPLES.md` - Complete code examples with Drizzle + NextAuth
 - `SCRIPTS.md` - Available npm scripts and workflows
-- `AI_WORKFLOW.md` - Working with AI assistants
+- `AI_WORKFLOW.md` - Working with AI assistants (includes `/changelog` and `/release` commands)
 - `recipes/` - Common feature patterns
 
 ## 📊 Comparison

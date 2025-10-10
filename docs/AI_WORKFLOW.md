@@ -157,6 +157,90 @@ Se ci sono errori, l'AI li legge e corregge automaticamente.
 
 > "Dopo l'implementazione, esegui `pnpm format && pnpm lint && pnpm typecheck`. Se ci sono errori, correggili prima di confermare completamento."
 
+## Comandi Claude per gestione versioni
+
+Questo template include comandi slash Claude per automatizzare changelog e release:
+
+### `/changelog` - Aggiorna CHANGELOG.md
+
+Rivede il lavoro recente e aggiorna `CHANGELOG.md` con le modifiche nella sezione `[Unreleased]`.
+
+**Come funziona:**
+
+1. Controlla modifiche recenti con `git status` e `git diff`
+2. Identifica il tipo di cambiamenti:
+   - **Added**: Nuove funzionalità
+   - **Changed**: Modifiche a funzionalità esistenti
+   - **Fixed**: Bug fix
+   - **Removed**: Rimozione di feature o file
+   - **Security**: Miglioramenti alla sicurezza
+3. Aggiorna `CHANGELOG.md` nella sezione `[Unreleased]`
+4. Segue lo stile esistente del changelog
+
+**Quando usarlo:**
+
+- Dopo aver completato una feature o fix
+- Prima di creare una release
+- Per tenere traccia di cosa è cambiato durante lo sviluppo
+
+**Esempio d'uso:**
+
+```bash
+# Dopo aver implementato una feature
+/changelog
+```
+
+### `/release` - Crea nuova versione
+
+Prepara e rilascia una nuova versione convertendo `[Unreleased]` in una release versionata con git tag.
+
+**Come funziona:**
+
+1. Chiede il numero di versione (es. `0.1.2`, `1.0.0`)
+2. Verifica che esista una sezione `[Unreleased]` con modifiche
+3. Aggiorna `CHANGELOG.md`:
+   - Rinomina `[Unreleased]` a `[x.y.z] - YYYY-MM-DD`
+   - Crea una nuova sezione `[Unreleased]` vuota
+4. Mostra le modifiche e chiede conferma
+5. Crea commit e tag git:
+   ```bash
+   git add CHANGELOG.md
+   git commit -m "chore: release vx.y.z"
+   git tag -a vx.y.z -m "Release x.y.z"
+   ```
+6. Chiede se vuoi fare push (opzionale)
+
+**Quando usarlo:**
+
+- Quando sei pronto a rilasciare una nuova versione
+- Dopo aver aggiornato il changelog con `/changelog`
+- Per creare tag git utilizzabili per GitHub releases
+
+**Esempio workflow completo:**
+
+```bash
+# 1. Dopo aver completato le feature
+/changelog
+
+# 2. Quando sei pronto per il release
+/release
+# → Specifica versione: 0.2.0
+# → Conferma modifiche
+# → Scegli se fare push
+
+# 3. (Opzionale) Push manuale
+git push && git push --tags
+```
+
+**Best practice:**
+
+- Usa `/changelog` frequentemente durante lo sviluppo
+- Usa `/release` solo quando hai un set di modifiche pronte per produzione
+- Segui [Semantic Versioning](https://semver.org/):
+  - **MAJOR** (1.0.0): Breaking changes
+  - **MINOR** (0.1.0): Nuove feature backward-compatible
+  - **PATCH** (0.0.1): Bug fixes
+
 ## Pattern comuni
 
 ### 1. Aggiungere una pagina protetta
