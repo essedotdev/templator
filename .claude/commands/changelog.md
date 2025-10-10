@@ -1,10 +1,11 @@
 # Update Changelog
 
-Review the recent work and update CHANGELOG.md with the changes.
+Review the recent work and update CHANGELOG.md with the changes in the [Unreleased] section.
 
 Follow these steps:
 
 1. **Check recent changes**: Run git status and git diff to see what files were modified
+
 2. **Identify the type of changes**:
    - Added: New features, files, or functionality
    - Changed: Updates to existing features
@@ -12,10 +13,23 @@ Follow these steps:
    - Removed: Deleted features or files
    - Security: Security improvements
 
-3. **Update CHANGELOG.md**: Add entries to the [Unreleased] section at the top, or to the current version section if one exists
+3. **Update CHANGELOG.md**:
+   - If [Unreleased] section exists: Add entries there
+   - If [Unreleased] section doesn't exist: Create it at the top of the changelog (after the header, before the first version)
+   - Format:
+     ```markdown
+     ## [Unreleased]
 
-4. **Format properly**: Follow the existing changelog format with clear, concise descriptions
+     ### Added
+     - New feature description
 
-If the [Unreleased] section doesn't exist yet, ask the user if they want to add it to the changelog structure.
+     ### Changed
+     - Change description
+     ```
 
-Be specific about what changed and why it matters to users/developers.
+4. **Format properly**:
+   - Use clear, concise descriptions
+   - Be specific about what changed and why it matters
+   - Follow existing changelog style
+
+Remember: Changes always go in [Unreleased] during development. When releasing a version, the user will rename [Unreleased] to the version number with date.

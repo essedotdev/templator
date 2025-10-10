@@ -46,6 +46,7 @@ export function createMetadata({
   const ogImage = image || siteConfig.ogImage;
 
   return {
+    metadataBase: new URL(siteConfig.url),
     title: fullTitle,
     description: metaDescription,
     keywords: siteConfig.keywords,
@@ -85,8 +86,5 @@ export function createMetadata({
         "max-snippet": -1,
       },
     },
-    ...(noIndex && {
-      metadataBase: new URL(siteConfig.url),
-    }),
   };
 }

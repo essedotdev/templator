@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+## [0.1.2] - 2025-10-10
+
+### Added
+
+- Claude Code slash commands:
+  - `/changelog` command to automatically update CHANGELOG.md with recent changes
+  - `/release` command for streamlined version releases
+
+### Changed
+
+- Improved `/changelog` command with better formatting instructions and [Unreleased] section handling
+
+### Fixed
+
+- Fixed Next.js metadataBase warning by ensuring metadataBase is always set in metadata configuration
+- Social Open Graph and Twitter Card images now properly resolve with absolute URLs
+
 ## [0.1.1] - 2025-10-10
 
 ### Added
@@ -88,5 +107,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - AI workflow guide
   - Recipe patterns
 
+[0.1.2]: https://github.com/yourusername/templator/releases/tag/v0.1.2
 [0.1.1]: https://github.com/yourusername/templator/releases/tag/v0.1.1
 [0.1.0]: https://github.com/yourusername/templator/releases/tag/v0.1.0
