@@ -10,8 +10,8 @@
  * 4. Deploys to Cloudflare
  */
 
-import { readFileSync } from 'fs';
 import { execSync } from 'child_process';
+import { readFileSync } from 'fs';
 
 console.log('🚀 Starting Cloudflare deployment...\n');
 
@@ -67,4 +67,4 @@ console.log('\n📦 Deploying to Cloudflare...');
 execSync('npx wrangler deploy', { stdio: 'inherit' });
 
 console.log('\n✅ Deployment complete!');
-console.log('🌐 Your app is live at: https://templator.gen-8ae.workers.dev');
+console.log('🌐 Your app is live at: https://templator.essedev.it');

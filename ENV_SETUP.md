@@ -44,8 +44,8 @@ Variabili **pubbliche** (URL, email, ecc.) sono in `wrangler.jsonc`:
 ```jsonc
 {
   "vars": {
-    "BETTER_AUTH_URL": "https://templator.gen-8ae.workers.dev",
-    "NEXT_PUBLIC_APP_URL": "https://templator.gen-8ae.workers.dev",
+    "BETTER_AUTH_URL": "https://templator.essedev.it",
+    "NEXT_PUBLIC_APP_URL": "https://templator.essedev.it",
     "EMAIL_PROVIDER": "mock",
     "EMAIL_FROM": "noreply@templator.gen-8ae.workers.dev",
     // ...
