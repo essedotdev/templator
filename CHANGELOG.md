@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-10-12
+
+### Added
+
+- Environment setup documentation (`ENV_SETUP.md`) with comprehensive guide for local and production environment configuration
+- Terms of Service page (`src/app/terms/page.tsx`)
+- Privacy Policy page (`src/app/privacy/page.tsx`)
+- Automated deployment script (`scripts/deploy.mjs`) that handles NEXT_PUBLIC_* variables correctly during build
+
+### Changed
+
+- Simplified `.env.example` with clearer local development focus and reference to production config in wrangler.jsonc
+- Updated `wrangler.jsonc` with production environment variables (BETTER_AUTH_URL, EMAIL_*, etc.)
+- Improved `.gitignore` to better exclude build artifacts and environment files
+- Enhanced dashboard layout with comprehensive authentication documentation comments
+- Improved login page with hard redirect using `window.location.href` for reliable session establishment
+- Updated dashboard pages with better session handling
+- Refined dashboard navigation component
+- Updated `/changelog` and `/release` command documentation with better formatting
+
+### Removed
+
+- Next.js authentication middleware (`src/middleware.ts`) - authentication now handled by Better Auth and dashboard layout
+
 ## [0.2.0] - 2025-10-12
 
 ### Changed
@@ -152,6 +176,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - AI workflow guide
   - Recipe patterns
 
+[0.3.0]: https://github.com/yourusername/templator/releases/tag/v0.3.0
 [0.2.0]: https://github.com/yourusername/templator/releases/tag/v0.2.0
 [0.1.2]: https://github.com/yourusername/templator/releases/tag/v0.1.2
 [0.1.1]: https://github.com/yourusername/templator/releases/tag/v0.1.1
