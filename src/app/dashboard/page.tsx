@@ -1,17 +1,13 @@
 import { getSession } from "@/lib/auth";
 import { db } from "@/db";
 import { user, session, post, contactMessage, newsletterSubscriber } from "@/db/schema";
-import { redirect } from "next/navigation";
 import { count, eq } from "drizzle-orm";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { RoleGate } from "@/components/auth";
 
 export default async function DashboardPage() {
-  const userSession = await getSession();
-
-  if (!userSession?.user) {
-    redirect("/login");
-  }
+  // Session è già verificata dal layout, garantito che userSession esiste
+  const userSession = (await getSession())!;
 
   // Query statistiche base
   const [userCountResult, sessionCountResult] = await Promise.all([

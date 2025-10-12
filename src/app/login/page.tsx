@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signIn } from "@/lib/auth-client";
@@ -14,7 +13,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Link from "next/link";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -41,9 +39,9 @@ export default function LoginPage() {
         throw new Error(result.error.message || "Email o password non validi");
       }
 
-      // Redirect a home (la session sarà già aggiornata)
-      router.push("/");
-      router.refresh();
+      // Hard redirect per assicurare che il cookie sia disponibile
+      // Usa window.location invece di router.push per forzare un full page reload
+      window.location.href = "/";
     } catch (err) {
       setError(err instanceof Error ? err.message : "Login failed");
     } finally {

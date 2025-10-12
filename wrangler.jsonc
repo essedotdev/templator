@@ -1,42 +1,22 @@
-/**
- * For more details on how to configure Wrangler, refer to:
- * https://developers.cloudflare.com/workers/wrangler/configuration/
- */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "templator",
   "main": ".open-next/worker.js",
-  "compatibility_date": "2025-09-15",
-  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "name": "templator",
+  "compatibility_date": "2025-04-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "keep_names": false,
   "assets": {
-    "binding": "ASSETS",
     "directory": ".open-next/assets",
+    "binding": "ASSETS"
   },
-  "observability": {
-    "enabled": true,
-  },
-  /**
-   * Environment Variables
-   * Note: DATABASE_URL and AUTH_SECRET are configured as secrets via wrangler secret put
-   */
-  "vars": {},
-  /**
-   * Smart Placement
-   * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
-   */
-  // "placement": { "mode": "smart" }
-  /**
-   * Note: Use secrets to store sensitive data.
-   * https://developers.cloudflare.com/workers/configuration/secrets/
-   */
-  /**
-   * Static Assets
-   * https://developers.cloudflare.com/workers/static-assets/binding/
-   */
-  // "assets": { "directory": "./public/", "binding": "ASSETS" }
-  /**
-   * Service Bindings (communicate between multiple Workers)
-   * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
-   */
-  // "services": [{ "binding": "MY_SERVICE", "service": "my-service" }]
+  "vars": {
+    "BETTER_AUTH_URL": "https://templator.gen-8ae.workers.dev",
+    "NEXT_PUBLIC_APP_URL": "https://templator.gen-8ae.workers.dev",
+    "EMAIL_PROVIDER": "mock",
+    "EMAIL_FROM": "noreply@templator.gen-8ae.workers.dev",
+    "EMAIL_REPLY_TO": "support@templator.gen-8ae.workers.dev",
+    "ADMIN_EMAIL": "admin@templator.gen-8ae.workers.dev"
+  }
 }

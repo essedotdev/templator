@@ -1,7 +1,6 @@
 import { getSession } from "@/lib/auth";
 import { db } from "@/db";
 import { user } from "@/db/schema";
-import { redirect } from "next/navigation";
 import { eq } from "drizzle-orm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -15,17 +14,14 @@ import { Shield, Mail, Calendar, Clock } from "lucide-react";
  * Accessibile a tutti gli utenti autenticati.
  */
 export default async function ProfilePage() {
-  const session = await getSession();
-
-  if (!session?.user) {
-    redirect("/login");
-  }
+  // Session è già verificata dal layout, garantito che session esiste
+  const session = (await getSession())!;
 
   // Fetch dati utente completi
   const [userData] = await db.select().from(user).where(eq(user.id, session.user.id)).limit(1);
 
   if (!userData) {
-    redirect("/login");
+    throw new Error("User data not found");
   }
 
   return (

@@ -1,38 +1,46 @@
 # Update Changelog
 
-Review the recent work and update CHANGELOG.md with the changes in the [Unreleased] section.
+Automatically analyze recent work and update CHANGELOG.md with comprehensive changes in the [Unreleased] section.
 
-Follow these steps:
+Execute these steps autonomously:
 
-1. **Check recent changes**: Run git status and git diff to see what files were modified
+1. **Analyze recent changes**:
+   - Run `git status` to see modified/added/deleted files
+   - Run `git diff` to see unstaged changes
+   - Run `git diff --staged` to see staged changes
+   - Run `git log --oneline --decorate -10` to see recent commits
+   - Run `git diff HEAD~5...HEAD` to see changes in last 5 commits (or fewer if less exist)
 
-2. **Identify the type of changes**:
-   - Added: New features, files, or functionality
-   - Changed: Updates to existing features
-   - Fixed: Bug fixes
-   - Removed: Deleted features or files
-   - Security: Security improvements
+2. **Categorize changes automatically**:
+   - **Added**: New features, files, components, or functionality
+   - **Changed**: Updates, improvements, or modifications to existing features
+   - **Fixed**: Bug fixes and error corrections
+   - **Removed**: Deleted features, files, or functionality
+   - **Security**: Security improvements, vulnerability fixes, or auth updates
+   - **Deprecated**: Features marked for future removal
 
-3. **Update CHANGELOG.md**:
-   - If [Unreleased] section exists: Add entries there
-   - If [Unreleased] section doesn't exist: Create it at the top of the changelog (after the header, before the first version)
-   - Format:
+3. **Generate changelog entries**:
+   - Analyze all file changes, commit messages, and code diffs
+   - Create clear, user-facing descriptions (not just technical details)
+   - Focus on "what" changed and "why it matters" to users
+   - Group related changes together
+   - Be specific but concise (one line per change)
 
-     ```markdown
-     ## [Unreleased]
+4. **Update CHANGELOG.md automatically**:
+   - If [Unreleased] section exists: Add new entries there
+   - If [Unreleased] section doesn't exist: Create it at the top (after header, before first version)
+   - Merge with existing [Unreleased] entries if present
+   - Maintain proper markdown formatting and hierarchy
+   - Follow the existing changelog style
 
-     ### Added
+5. **Quality checks**:
+   - Ensure descriptions are clear and meaningful
+   - Avoid duplicates or redundant entries
+   - Use proper grammar and punctuation
+   - Keep consistent tone with existing entries
 
-     - New feature description
-
-     ### Changed
-
-     - Change description
-     ```
-
-4. **Format properly**:
-   - Use clear, concise descriptions
-   - Be specific about what changed and why it matters
-   - Follow existing changelog style
-
-Remember: Changes always go in [Unreleased] during development. When releasing a version, the user will rename [Unreleased] to the version number with date.
+**Important**:
+- Execute all steps automatically without asking for intermediate confirmations
+- Only show the user the final changelog diff
+- If there are no meaningful changes to document, inform the user
+- Focus on user-facing changes, not internal refactoring (unless significant)

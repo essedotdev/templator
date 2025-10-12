@@ -7,7 +7,6 @@ import {
   Mail,
   MessageSquare,
   Users,
-  Settings,
   UserCircle,
 } from "lucide-react";
 
@@ -53,12 +52,6 @@ const navItems: NavItem[] = [
     href: "/dashboard/users",
     icon: Users,
     permission: "manage_users",
-  },
-  {
-    label: "Settings",
-    href: "/dashboard/settings",
-    icon: Settings,
-    permission: "system_settings",
   },
 ];
 
