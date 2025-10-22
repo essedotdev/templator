@@ -63,15 +63,18 @@ export const auth = betterAuth({
     }) => {
       await sendPasswordResetEmail({ user, url });
     },
-  },
 
-  // Custom password hashing (PBKDF2 with Web Crypto API for Cloudflare Workers)
-  password: {
-    hash: async (password: string) => {
-      return await hashPassword(password);
-    },
-    verify: async (password: string, hash: string) => {
-      return await verifyPassword(password, hash);
+    // ⚠️ IMPORTANT: Custom password hashing functions MUST be configured HERE
+    // inside emailAndPassword, NOT at the root level. If placed at root level,
+    // Better Auth will ignore them and use its default scrypt algorithm instead.
+    // This would cause login failures if passwords are hashed with a different algorithm.
+    password: {
+      hash: async (password: string) => {
+        return await hashPassword(password);
+      },
+      verify: async (password: string, hash: string) => {
+        return await verifyPassword(password, hash);
+      },
     },
   },
 

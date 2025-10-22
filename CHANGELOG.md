@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.1] - 2025-10-22
+
+### Fixed
+
+- Moved custom password hashing configuration inside `emailAndPassword` block in Better Auth configuration to ensure PBKDF2 functions are properly used instead of default scrypt algorithm
+
 ## [0.4.0] - 2025-10-13
 
 ### Added
@@ -208,6 +214,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - AI workflow guide
   - Recipe patterns
 
+[0.4.1]: https://github.com/yourusername/templator/releases/tag/v0.4.1
 [0.4.0]: https://github.com/yourusername/templator/releases/tag/v0.4.0
 [0.3.1]: https://github.com/yourusername/templator/releases/tag/v0.3.1
 [0.3.0]: https://github.com/yourusername/templator/releases/tag/v0.3.0
